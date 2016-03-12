@@ -1,0 +1,214 @@
+* {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        background: white;
+        overflow-x: hidden;
+    }
+    
+    #imgBox {
+        width: 280px;
+        height: 250px;
+        border: solid 2px #EEF3F3;
+        border-radius: 10px;
+        text-align: center;
+        margin: auto;
+    }
+    #imgBox:hover {/*当鼠标移入时，先写移入后的状态，在添加transition过渡*/
+        border: solid 5px white;
+        transition: 0.5s ease;
+    }
+    
+    #imgBox:hover #img {/*当鼠标移入时，对相应的图片设置移入后的状态（这里用转换transform来实现的），之后添加transition过渡属性*/
+        transform: rotate(360deg) scale(1.5);
+        transition: all 0.5s linear;
+    }
+    
+    #wrapper {
+        /*width: 1673px;
+        height: 1234px;*/
+        background: black;
+        position: absolute;
+        left: -250px;
+        top: -250px;
+        z-index: -1;
+    }
+    
+    .backImg {
+        height: 1234px;
+        position: absolute;
+    }
+    
+    .rowColor {
+        background: rgba(57, 180, 210, 0.51);
+        /*z-index: 100 !important;*/
+    }
+    
+    #img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    #btnBox {
+        width: 40px;
+        height: 40px;
+        margin: auto;
+        text-align: center;
+    }
+    
+    #btnImg {
+        position: relative;
+        top: 0;
+        opacity: 0.8;
+    }
+    
+    #btnBox:hover #btnImg {
+        top: 10px;
+        opacity: 1.0;
+        transition: opacity 0.5s linear;
+        transition: top 0.5s linear;
+    }
+    
+    #box2 {
+        padding: 0px;
+        margin: 0px;
+       
+        background: white;
+    }
+    
+    .showWhite {
+        background: white;
+        opacity: 1;
+        overflow: hidden;
+    }
+    
+    .showWhite:hover {
+        opacity: 0.8;
+        transition: background 0.5s linear;
+        transition: opacity 0.5s linear;
+    }
+    
+    .plus {
+        transform: scale(2);
+        transition: all 8s linear;
+    }
+    
+    .minus {
+        transform: scale(1);
+        transition: all 8s linear;
+    }
+  
+    #wrapper2{       
+        position: absolute;
+        z-index: -1;
+        left:-250px;
+    }
+    .backImg2{
+        height: 600px;
+        position: absolute;/*一定要加上绝对定位 否则两张图片不在一个位置出现*/
+    }
+   
+   /*以下做幽灵按钮*/
+   .button-box{
+    height: 280px;
+    margin-top:10px;
+    margin-bottom:10px;
+   }
+   .button-box .link{
+    width:205px;
+    height:280px;
+    margin: auto;
+    margin-top:20px;
+    margin-bottom: 20px;
+   }
+   .link .icon{
+    display: inline-block;
+    width: 100%;
+    height: 190px;
+   }
+   .link-more .icon{
+    background: url('../img/more3.png') no-repeat center center;
+   }
+   .link-github .icon{
+    background: url('../img/github.png') no-repeat center center;     
+    }
+    .link-weibo .icon{
+        background: url('../img/weibo.png') no-repeat center center;
+    }
+    .link:hover .icon{
+        transform: rotate(360deg) scale(1.2);
+        transition: transform 0.2s linear;
+    }
+    .button{
+        display: block;
+        width: 180px;
+        height: 50px;
+        text-decoration: none;
+        line-height: 50px;
+        color: #2dcb70;
+        font-weight: bolder;
+        border:2px solid rgba(255,255,255,0.8);
+        padding-left: 20px;
+        margin: 0px auto;
+        box-sizing: border-box;
+        position: relative;
+        background: url('../img/jiantou.png') no-repeat 125px center;
+    }
+    .button:hover{
+        border:2px solid white;
+        background-position: 140px center;
+    }
+    .button{
+        transition: 0.4s ease;
+    }
+    .button .line{
+        background: none;
+        display: block;
+        position: absolute;
+        transition: 0.4s ease;
+    }
+    .button:hover .line{
+        background: white;
+    }
+    .button .line-top{
+        height: 2px;
+        width: 0px;
+        left: -110%;
+        top:-2px;
+    }
+    .button:hover .line-top{
+        width: 100%;
+        left: -2px;
+    }
+    .button .line-bottom{
+        height: 2px;
+        width: 0px;
+        left: 210%;
+        top:46px;
+    }
+    .button:hover .line-bottom{
+        width: 100%;
+        left: -2px;
+    }
+    .button .line-right{
+        height:0px;
+        width: 2px;
+        top: -110%;
+        left: 176px;
+    }
+    .button:hover .line-right{
+        height: 100%;
+        top: 2px;
+    }
+    .button .line-left{
+        height: 0px;
+        width: 2px;
+        top: 248px;
+        left: -2px;
+    }
+    .button:hover .line-left{
+        height:100%;
+        top:0px;
+    }

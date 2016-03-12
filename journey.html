@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='utf-8'>
+    <!-- 浏览Web网页时能适应屏幕的大小显示在屏幕上，禁止其默认的自适应页面的效果 -->
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>Journey diary</title>
+    <meta name='description' content='Journey diary is a personal diary'>
+    <meta name='keywords' content='journey,keywords'>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <script type="text/javascript" src='js/jquery-1.11.2.min.js'></script>
+    <script type="text/javascript" src='js/bootstrap.js'></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+    <div id='wrapper'>
+        <img src="img/back3.jpg" class='backImg img'>
+        <img src="img/back4.jpg" class='backImg img'>
+    </div>
+    <div class="container-fluid rowColor" id='container'>
+        <!--container-fluid 占据全部视口的容器 -->
+        <div class='row'>
+            <div class="col-sm-4 col-sm-offset-4" style='text-align:center;'>
+                <div id='imgBox'>
+                    <span style='display:block;color:white;width:100%;font-size:40px;' id='imgDes'>Travel Diary</span>
+                    <img src="img/diary.png" id='img'>
+                </div>
+            </div>
+        </div>
+        <div class='row' id='showRow'>
+            <div class="col-sm-6 col-sm-offset-3" style='text-align:center'>
+                <!-- <span style='display:block;color:white;font-size:30px;width:100%'>Hello! I'm Xue Dong.This is my Travel Diary!</span> -->
+                <span style='display:block;color:white;font-size:30px;width:100%' id='intr'></span>
+            </div>
+        </div>
+        <div class="row" id='btnRow'>
+            <div class="col-sm-4 col-sm-offset-4" style='text-align:center'>
+                <div id='btnBox'>
+                    <a href=""><img src="img/down5.png" id='btnImg'></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" id='box2'>
+        <div class="row">
+            <div class="col-sm-6" style='padding:0px;'>
+                <div class='showWhite'>
+                    <a href="">
+                        <!-- a标签给高度和宽度后 row会变高 这样图片结合之间会有空隙 -->
+                        <img src="img/101.jpg" class='img-responsive'>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6" style='padding:0px;'>
+                <div class='showWhite'>
+                    <a href="">
+                        <img src="img/202.jpg" class='img-responsive'>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-6" style='padding:0px;'>
+                        <div class='showWhite'>
+                            <a href="">
+                                <img src="img/4.jpg" class='img-responsive'>
+                                <!-- img-responsive使得图片为自适应的 -->
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style='padding:0px;'>
+                        <div class='showWhite'>
+                            <a href="">
+                                <img src="img/5.jpg" class='img-responsive'>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6" style='padding:0px;'>
+                        <div class="showWhite">
+                            <a href="">
+                                <img src="img/6.jpg" class='img-responsive'>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style='padding:0px;'>
+                        <div class='showWhite'>
+                            <a href="">
+                                <img src="img/7.jpg" class='img-responsive'>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4" style='padding:0px;'>
+                <div class="showWhite">
+                    <a href="">
+                        <img src="img/3.jpg" class='img-responsive'>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4" style='padding:0px;'>
+                <!-- 要给列设置padding=0；以免留白 -->
+                <div class="showWhite">
+                    <a href="">
+                        <img src="img/9.jpg" class='img-responsive'>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4" style='padding:0px;'>
+                <div class="showWhite">
+                    <a href="">
+                        <img src="img/10.jpg" class='img-responsive'>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4" style='padding:0px;'>
+                <div class="showWhite">
+                    <a href="">
+                        <img src="img/11.jpg" class='img-responsive'>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4" style='padding:0px;'>
+                <div class="showWhite">
+                    <a href="">
+                        <img src="img/3.jpg" class='img-responsive'>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <!-- 这一行全部占用时 也要说明是12列全部占用 一旦在row里面有col 就有列的padding 不需要时要去掉 -->
+                    <div class="col-sm-12" style='padding:0px;'>
+                        <div class="showWhite">
+                            <a href=""><img src="img/12.jpg" class='img-responsive'>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6" style='padding:0px;'>
+                        <div class="showWhite">
+                            <a href=""><img src="img/7.jpg" class='img-responsive'></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style='padding:0px;'>
+                        <div class="showWhite">
+                            <a href=""><img src="img/6.jpg" class='img-responsive'></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6" style='padding:0px;'>
+                <div class="showWhite">
+                    <a href="">
+                        <img src="img/1.jpg" class='img-responsive'>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6" style='padding:0px;'>
+                <div class="showWhite">
+                    <a href="">
+                        <img src="img/2.jpg" class='img-responsive'>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper2">
+        <img src="img/back1.jpg" class='backImg2'>
+        <img src="img/back2.jpg" class='backImg2'>
+    </div>
+    <div class="container-fluid rowColor" id='box3' style='padding:0px;'>
+        <div class="row">
+            <div class="col-sm-4 button-box">
+                    <div class='link link-more'>
+                       <span class='icon'></span>
+                       <a href="" class='button'>More
+                            <span class='line line-top'></span>
+                            <span class='line line-bottom'></span>
+                            <span class='line line-left'></span>
+                            <span class='line line-right'></span>
+                       </a>
+                    </div>
+            </div>
+            <div class="col-sm-4 button-box">
+                    <div class='link link-github'>
+                       <span class='icon'></span>
+                       <a href="" class='button'>Github
+                            <span class='line line-top'></span>
+                            <span class='line line-bottom'></span>
+                            <span class='line line-left'></span>
+                            <span class='line line-right'></span>
+                       </a>
+                    </div>
+            </div>
+            <div class="col-sm-4 button-box">
+                   <div class='link link-weibo'>
+                       <span class='icon'></span>
+                       <a href="" class='button'>Weibo
+                            <span class='line line-top'></span>
+                            <span class='line line-bottom'></span>
+                            <span class='line line-left'></span>
+                            <span class='line line-right'></span>
+                       </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+var timer1;
+var timer2; //图片放大缩小效果
+var flag = true;
+var wrapper = document.getElementById('wrapper');
+var wrapper2 = document.getElementById('wrapper2');
+var imgWidth;
+var imgHeight;
+var backX;
+var backY;
+var scaleValue = 1;
+var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+wrapper.style.width = document.documentElement.clientWidth || document.body.clientWidth + 250 + 'px';
+var speed;
+
+window.onload = function() {
+
+    window.onscroll=function(){
+    var threshold=$('#container').outerHeight(true)+$('#box2').outerHeight(true)+$('#box3').outerHeight(true);
+    var scrollValue=$(window).scrollTop()+$(window).height();
+    if(scrollValue>threshold+40){
+        console.log('效果');
+      //想做页面滚动到一定位置出效果。。。没做出来
+    }
+}
+    wrapper2.style.width = (document.documentElement.clientWidth || document.body.clientWidth + 250) + 'px';
+    wrapper2.style.height = 240 + 'px';
+    //淡入淡出效果。jquery实现
+    $(".backImg").fadeOut(0).eq(0).fadeIn(0); //先隐藏所有图片，再将对象移到第一张图片，使之淡入
+    $(".backImg2").fadeOut(0).eq(0).fadeIn(0); //先隐藏所有图片，再将对象移到第一张图片，使之淡入
+
+    var i = 0; //初始化图片的索引值
+    var j = 0;
+    setInterval(function() { //setInterval是每隔一段时间循环一个动作
+        if ($(".backImg").length > (i + 1)) { //判断是否执行到最后一张图片
+            $(".backImg").eq(i).fadeOut(5000).next("img").fadeIn(5000);
+
+            //索引值为i的图片淡出，它的下一张图片淡入
+            i++; //使索引值增加1，下一次执行动作的图片索引值为i+1，
+        }
+        if ($(".backImg").length <= (i + 1)) { //如果为最后一张图片，将执行下面的代码
+            $(".backImg").eq(i).fadeOut(5000);
+            $('.backImg').eq(0).fadeIn(5000); //索引值为i的图片淡出，这里不同于上面，是第一张图片淡入 
+            i = 0; //将索引值变为0，回到初始状态           
+        }
+        if ($(".backImg2").length > (j + 1)) { //判断是否执行到最后一张图片
+            $(".backImg2").eq(j).fadeOut(3000).next("img").fadeIn(3000);
+
+            //索引值为i的图片淡出，它的下一张图片淡入
+            j++; //使索引值增加1，下一次执行动作的图片索引值为i+1，
+        }
+        if ($(".backImg2").length <= (j + 1)) { //如果为最后一张图片，将执行下面的代码
+            $(".backImg2").eq(j).fadeOut(3000);
+            $('.backImg2').eq(0).fadeIn(3000); //索引值为i的图片淡出，这里不同于上面，是第一张图片淡入 
+            j = 0; //将索引值变为0，回到初始状态           
+        }
+    }, 5000); //5000ms执行一次淡入淡出的动作
+    timer1 = setInterval(pos, 20);
+    var container = document.getElementById('container');
+    var box2=document.getElementById('box2');
+    var box3 = document.getElementById('box3');
+    container.style.paddingTop = (document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
+    box3.style.height =300 + 'px';
+    // box3.style.paddingTop = document.getElementById('moreBox').offsetHeight * 0.2 + 'px';
+    
+
+    var diary = document.getElementById('img');
+    var imgBox = document.getElementById('imgBox');
+    var imgDes = document.getElementById('imgDes');
+    imgBox.style.paddingTop = (imgBox.offsetHeight - diary.offsetHeight - imgDes.offsetHeight) * 0.25 + 'px';
+    imgDes.style.marginBottom = 10 + 'px';
+    var btnBox = document.getElementById('btnBox');
+    var btnImg = document.getElementById('btnImg');
+    btnBox.style.paddingTop = (btnBox.offsetHeight - btnImg.offsetHeight) * 0.5 + 'px';
+    document.getElementById('btnRow').style.paddingTop = parseInt(document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
+    document.getElementById('btnRow').style.paddingBottom = parseInt(document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
+    document.getElementById('showRow').style.paddingTop = parseInt(document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
+
+    //打字效果实现
+    document.getElementById('intr').style.height = 40 + 'px';
+    var s = "Hello,Welcome to my travel diary!";
+    var intr = $('#intr');
+    var index = 0;
+    var length = s.length;
+    var tId = null;
+    var delayTimer = null;
+
+    function start() {
+        intr.text(''); //先清空上次的文字 再显示这次的文字 视觉上就是一个一个输出的
+        tId = setInterval(function() {
+            intr.append(s.charAt(index)); //向span容器中依次添加字符
+            if (index++ === length) { //判断字符是否都添加完 添加完则清空 重新开始
+                clearInterval(tId);
+                delayTimer = setTimeout(function() {
+                    index = 0;
+                    start();
+                }, 2000);
+
+            }
+        }, 100);
+    }
+    start();
+
+    //实现img-responsive的过程
+    // oImg=document.getElementsByClassName('img-responsive');
+    //  for(var i=0;i<oImg.length;i++){
+    //      oImg[i].style.height=oImg[i].offsetWidth*oImg[i].naturalHeight/oImg[i].naturalWidth+'px';
+    //  }
+
+    var imgScale = document.getElementsByClassName('img-responsive');
+    for (var j = 0; j < imgScale.length; j++) {
+        imgScale[j].index = j; //给每个图片加上index 这种方法常用
+        //用时间监听给每个图片添加事件 在图片的动画效果可以用css实现时就用css 只是写不同的类 再添加不同的类就可以 要把添加的类单独写出来 不要和原来的写到一个名字中
+        imgScale[j].addEventListener('mouseover', function() {
+            $(imgScale[this.index]).removeClass('minus').addClass('plus');
+        }, false);
+        imgScale[j].addEventListener('mouseout', function() {
+            $(imgScale[this.index]).removeClass('plus').addClass('minus');
+        }, false);
+        //也可用最原始的方法来给每个图片添加事件
+        // imgNow=imgScale[j];
+        // imgScale[j].onmouseover = function() {
+        //     console.log(this.index,'over');
+        //     $(imgScale[this.index]).removeClass('minus').addClass('plus');
+        // }
+        // imgScale[j].onmouseout = function() {
+        //     console.log(this.index,'out')
+        //     $(imgScale[this.index]).removeClass('plus').addClass('minus');
+        // }
+    }
+    //一定要上面的语句执行完在执行box3的语句 否则container的高度会出问题
+    document.getElementsByClassName('backImg2')[0].style.width=(document.documentElement.clientWidth || document.body.clientWidth )+ 250 + 'px';
+    document.getElementsByClassName('backImg2')[1].style.width=(document.documentElement.clientWidth || document.body.clientWidth )+ 250 + 'px';
+    console.log($('.backImg2').eq(0).width());
+    var containerHeight = container.offsetHeight;//container里面包含图片 图片的高度以及图片的盒子样式加载后，才是实际的container的高度 所以在box3要读取container的高度时，要在container里面内容加载完成后再进行。
+    console.log(containerHeight,'769');
+    var box2Height = box2.offsetHeight;
+    console.log(box2Height,'2474');
+    var wrapper2TopValue = containerHeight + box2Height;
+    console.log(wrapper2TopValue,'3243');
+    wrapper2.style.top = wrapper2TopValue-250 + 'px';
+    wrapper2Top =wrapper2.offsetTop;
+    console.log(wrapper2Top);
+
+    // while(1){
+    //     console.log($(window).scrollTop()+$(window).height(),'滚动距离');
+    //     console.log($('#container').outerHeight(true)+$('#box2').outerHeight(true)+$('#box3').outerHeight(true),'界限');
+    // }
+
+    
+}
+
+function pos() {
+
+    if (flag) {
+        speed = 1;
+        if (wrapper.offsetLeft >= 0 && wrapper.offsetTop >= 0) {
+            flag = false;
+        }
+        if (wrapper2.offsetLeft >= 0 && wrapper2.offsetTop >= wrapper2Top) {
+            flag = false;
+        }
+    }
+    if (!flag) {
+        speed = -1;
+        if (wrapper.offsetLeft < -250 && wrapper.offsetTop < -250) {
+            flag = true;
+        }
+        if (wrapper2.offsetLeft < -250 && wrapper2.offsetTop < wrapper2Top) {
+            flag = true;
+        }
+    }
+    wrapper.style.left = (wrapper.offsetLeft + speed) + 'px';
+    wrapper.style.top = (wrapper.offsetTop + speed) + "px";
+    wrapper2.style.left = (wrapper2.offsetLeft + speed) + 'px';
+    wrapper2.style.top = (wrapper2.offsetTop + speed) + "px";
+}
+</script>
+
+</html>
