@@ -42,8 +42,12 @@
     }
     
     .rowColor {
-        background: rgba(57, 180, 210, 0.51);
+       /* background: rgba(57, 180, 210, 0.51);*/
+        background: rgba(84,73,124,0.43);
         /*z-index: 100 !important;*/
+    }
+    .rowColor2{
+        background: rgba(84,73,124,0.43);
     }
     
     #img {
@@ -155,13 +159,11 @@
         box-sizing: border-box;
         position: relative;
         background: url('../img/jiantou.png') no-repeat 125px center;
+        transition: 0.4s ease;
     }
     .button:hover{
         border:2px solid white;
         background-position: 140px center;
-    }
-    .button{
-        transition: 0.4s ease;
     }
     .button .line{
         background: none;
@@ -212,3 +214,102 @@
         height:100%;
         top:0px;
     }
+    #box4{
+        height:300px;
+        background: white;
+    }
+#myPhoto{
+    display: inline-block;
+    height: 240px;
+    width: 240px;
+    border-radius: 200px;
+    background: url('../img/me2.jpg') no-repeat center center;
+    animation-duration: 1s;
+   
+}
+
+a:hover{
+    text-decoration: none !important;
+    color:  #2dcb70;
+}
+#copy{
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+#goTop{
+    display: block;
+    height: 60px;
+    width: 40px; 
+    position: fixed;
+    background: rgba(51,51,51,0.6);
+    padding-top: 20px;
+    z-index: 2;
+    text-align: center;
+    cursor: pointer;
+}
+/*振动效果 和css里面的有冲突
+*//*@-webkit-keyframes buzz-out{
+    0%{
+        -webkit-transform:translateX(1px) rotateY(2deg);
+    }
+    100%{
+        -webkit-transform:translateX(-1px) rotateY(-2deg);
+    }
+}  
+#myPhoto:hover{
+    -webkit-animation-name:buzz-out;
+    -webkit-animation-duration:1s;
+    -webkit-animation-timing-funciton:linear;
+    -webkit-animation-iteration-count:infinite;
+} */
+/*添加效果没用
+#myPhoto:hover{
+   transform: scale(1.2);
+   transition: all 1s ease;
+}*/
+#open{
+    background:#2dcb70;
+    z-index: 10;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+   animation-duration: 3s;
+}
+@-webkit-keyframes stretchdelay{
+0%,40%,100%
+{
+    -webkit-transform:scaleY(0.4);
+}
+20%
+{
+    -webkit-transform:scaleY(1.0);
+    }
+
+}
+.spinner{
+    margin: 100px auto;
+    width: 80px;
+    height: 90px;
+    text-align: center;
+    font-size: 10px;
+}
+.spinner>span{
+    display: inline-block;
+    background: white;
+    height: 100%;
+    width: 10px;
+    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+}
+.spinner .rect2{
+    -webkit-animation-delay: -1.1s;
+}
+.spinner .rect3{
+    -webkit-animation-delay: -1.0s
+}
+.spinner .rect4{
+    -webkit-animation-delay: -0.9s
+}
+.spinner .rect5{
+    -webkit-animation-delay: -0.8s
+}
