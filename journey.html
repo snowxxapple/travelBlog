@@ -194,6 +194,7 @@
         <img src="img/back15.jpg" class='backImg2'>
         <img src="img/back14.jpg" class='backImg2'>
     </div>
+    <!-- 幽灵按钮 -->
     <div class="container-fluid rowColor2" id='box3' style='padding:0px;'>
         <div class="row">
             <div class="col-sm-4 button-box">
@@ -233,16 +234,40 @@
     </div>
     <div class="container-fluid" id='box4'>
         <div class="row">
-            <div class='col-sm-12' style='text-align: center;padding-top:30px;padding-bottom: 30px;'>
+            <div class='col-sm-12 col-xs-12' style='text-align: center;padding-top:30px;padding-bottom: 30px;'>
                 <a href="https://snowxxapple.github.io" id='myPhoto' class='revealOnScroll'></a>
+            </div>
+        </div>
+        <div class="row">
+            <!-- 放到这后，会把内容算到下面container里面的row中，很奇怪 -->
+            <div class='col-sm-12 col-xs-12' style='text-align: center;'>
                 <h1 style='margin-top:10px;'>About me</h1>
                 <p>My name is XX,if you want know me more,please click my photo!</p>
             </div>
         </div>
     </div>
+    <div class="container-fluid xDevice">
+        <!-- <div class="row">把这行放到这就可以，但是放到下面的下面或者上面就不对 container里面不包含这行
+            <div class='col-sm-12 col-xs-12' style='text-align: center;'>
+                 <h1 style='margin-top:10px;'>About me</h1>
+                <p>My name is XX,if you want know me more,please click my photo!</p>
+            </div>
+        </div> -->
+        <div class='row' style='background: rgba(136, 234, 189, 0.46);padding: 10px'>
+            <div class='col-xs-4'>
+                <div class='btn btn-info btn-small'>more</div>
+            </div>
+            <div class='col-xs-4'>
+                <div class='btn btn-info btn-small'>github</div>
+            </div>
+            <div class='col-xs-4'>
+                <div class='btn btn-info btn-small'>weibo</div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class='row'>
-            <div class='col-sm-12' id='copy'>Copyright&copy;&nbsp;2016小雪</div>
+            <div class='col-sm-12 col-xs-12' id='copy'>Copyright&copy;&nbsp;2016小雪</div>
         </div>
     </div>
 </body>
@@ -263,22 +288,24 @@ var speed;
 var counter = 0;
 var load = false;
 var open = document.getElementById('open');
-open.style.width = screenWidth+ 'px';
-open.style.height = document.body.scrollHeight +500+ 'px';
-var spinner=document.getElementsByClassName('spinner');
-open.style.paddingTop=(document.documentElement.clientHeight|| document.body.clientHeight)*0.3+'px';
+open.style.width = screenWidth + 'px';
+open.style.height = document.body.scrollHeight + 500 + 'px';
+var spinner = document.getElementsByClassName('spinner');
+open.style.paddingTop = (document.documentElement.clientHeight || document.body.clientHeight) * 0.3 + 'px';
 var timer3;
-timer3=setTimeout(function(){
-    $('#open').addClass('animated slideOutRight');
-},5000);
+
 window.onload = function() {
+    //待页面加载完，包括图片加载完毕后，移除开场动画
+    timer3 = setTimeout(function() {
+        $('#open').addClass('animated slideOutRight');
+    }, 1000);
     $('#goTop').click(function(event) {
         $('html,body').animate({
             scrollTop: 0
         }, 500);
     });
-    document.getElementById('goTop').style.left = (document.documentElement.clientWidth || document.body.clientWidth) * 0.95 + 'px';
-    document.getElementById('goTop').style.top = (document.documentElement.clientHeight * 0.9 || document.body.clientHeight) * 0.95 + 'px';
+    document.getElementById('goTop').style.left = (document.documentElement.clientWidth || document.body.clientWidth) * 0.9 + 'px';
+    document.getElementById('goTop').style.top = (document.documentElement.clientHeight * 0.9 || document.body.clientHeight) * 0.9 + 'px';
     //用的CSS库实现的滚动动画效果 animate.css
     window.onscroll = function() {
         // $('#open').removeClass('animated rollOut');
@@ -427,11 +454,15 @@ window.onload = function() {
     wrapper2Top = wrapper2.offsetTop;
     console.log(wrapper2Top);
 }
-
+// clearInterval(timer1);
 function pos() {
-
+console.log('定时器启动');
+console.log(flag);
     if (flag) {
         speed = 1;
+        console.log('down');
+        console.log(wrapper.offsetLeft,'横坐标');
+         console.log(wrapper.offsetTop,'纵坐标');
         if (wrapper.offsetLeft >= 0 && wrapper.offsetTop >= 0) {
             flag = false;
         }
@@ -439,9 +470,12 @@ function pos() {
             flag = false;
         }
     }
-    if (!flag) {
+    if (flag==false) {
+        console.log('up');
+        console.log(wrapper.offsetLeft,'横坐标');
+         console.log(wrapper.offsetTop,'纵坐标');
         speed = -1;
-        if (wrapper.offsetLeft < -300 && wrapper.offsetTop < -1500) {
+        if (wrapper.offsetLeft < -300 && wrapper.offsetTop < -250) {
             flag = true;
         }
         if (wrapper2.offsetLeft < -250 && wrapper2.offsetTop < wrapper2Top) {

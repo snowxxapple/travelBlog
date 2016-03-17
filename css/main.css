@@ -121,8 +121,9 @@
     margin-bottom:10px;
    }
    .button-box .link{
-    width:205px;
-    height:280px;
+    /*width:205px;
+*/    height:280px;
+    width: 100%;
     margin: auto;
     margin-top:20px;
     margin-bottom: 20px;
@@ -238,7 +239,7 @@ a:hover{
     cursor: pointer;
 }
 #goTop{
-    display: block;
+    display: none;
     height: 60px;
     width: 40px; 
     position: fixed;
@@ -312,4 +313,27 @@ a:hover{
 }
 .spinner .rect5{
     -webkit-animation-delay: -0.8s
+}
+@media (max-device-width:768px){
+    #wrapper2{
+        display: none;
+    }
+.rowColor2{
+    display: none;
+}
+.xDevice{
+    display: block;
+}
+
+}
+@media (min-device-width:768px){
+    .xDevice{
+        display: none;
+    }
+    .rowColor2{
+        display: block;
+    }
+    #wrapper2{
+        display: block;
+    }
 }
