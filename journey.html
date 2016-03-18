@@ -293,193 +293,203 @@ open.style.height = document.body.scrollHeight + 500 + 'px';
 var spinner = document.getElementsByClassName('spinner');
 open.style.paddingTop = (document.documentElement.clientHeight || document.body.clientHeight) * 0.3 + 'px';
 var timer3;
-
+$('html').width=screenWidth+'px';
 window.onload = function() {
-    //待页面加载完，包括图片加载完毕后，移除开场动画
-    timer3 = setTimeout(function() {
-        $('#open').addClass('animated slideOutRight');
-    }, 1000);
-    $('#goTop').click(function(event) {
-        $('html,body').animate({
-            scrollTop: 0
-        }, 500);
-    });
-    document.getElementById('goTop').style.left = (document.documentElement.clientWidth || document.body.clientWidth) * 0.9 + 'px';
-    document.getElementById('goTop').style.top = (document.documentElement.clientHeight * 0.9 || document.body.clientHeight) * 0.9 + 'px';
-    //用的CSS库实现的滚动动画效果 animate.css
-    window.onscroll = function() {
-        // $('#open').removeClass('animated rollOut');
-        $(".revealOnScroll:not(.animated)").each(function() {
-            threshold = $('#container').outerHeight(true) + $('#box2').outerHeight(true) + $('#box3').outerHeight(true);
-            scrollValue = $(window).scrollTop() + $(window).height();
-            if (scrollValue >= threshold - 10) {
-                $(this).addClass('animated zoomInUp');
-            }
+        //待页面加载完，包括图片加载完毕后，移除开场动画
+        timer3 = setTimeout(function() {
+            $('#open').addClass('animated slideOutRight');
+        }, 1000);
+        $('#goTop').click(function(event) {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 500);
         });
-        $('.zoomInUp').each(function() {
+        document.getElementById('goTop').style.left = (document.documentElement.clientWidth || document.body.clientWidth) * 0.9 + 'px';
+        document.getElementById('goTop').style.top = (document.documentElement.clientHeight * 0.9 || document.body.clientHeight) * 0.9 + 'px';
+        //用的CSS库实现的滚动动画效果 animate.css
+        window.onscroll = function() {
+            // $('#open').removeClass('animated rollOut');
+            $(".revealOnScroll:not(.animated)").each(function() {
                 threshold = $('#container').outerHeight(true) + $('#box2').outerHeight(true) + $('#box3').outerHeight(true);
                 scrollValue = $(window).scrollTop() + $(window).height();
-                if (scrollValue < threshold - 10) {
-                    console.log('移除');
-                    //当图片移除视野时 删除动画属性，使得下次再移入视野时，依然有动画效果
-                    $(this).removeClass('animated zoomInUp'); //animated和具体动画效果要一起添加
+                if (scrollValue >= threshold - 10) {
+                    $(this).addClass('animated zoomInUp');
                 }
-            })
-            //返回顶部按钮
-        if ($(window).scrollTop() > 150) {
-            console.log($(window).scrollTop(), '$(window).scrollTop()');
-            $('#goTop').fadeIn(100);
-        }
-        if ($(window).scrollTop() < 150) {
-            $('#goTop').fadeOut(100);
-            console.log($(window).scrollTop(), '隐藏');
-        }
-    }
-    wrapper2.style.width = (document.documentElement.clientWidth || document.body.clientWidth + 250) + 'px';
-    wrapper2.style.height = 240 + 'px';
-    //淡入淡出效果。jquery实现
-    $(".backImg").fadeOut(0).eq(0).fadeIn(0); //先隐藏所有图片，再将对象移到第一张图片，使之淡入
-    $(".backImg2").fadeOut(0).eq(0).fadeIn(0); //先隐藏所有图片，再将对象移到第一张图片，使之淡入
-
-    var i = 0; //初始化图片的索引值
-    var j = 0;
-    setInterval(function() { //setInterval是每隔一段时间循环一个动作
-        if ($(".backImg").length > (i + 1)) { //判断是否执行到最后一张图片
-            $(".backImg").eq(i).fadeOut(5000).next("img").fadeIn(5000);
-
-            //索引值为i的图片淡出，它的下一张图片淡入
-            i++; //使索引值增加1，下一次执行动作的图片索引值为i+1，
-        }
-        if ($(".backImg").length <= (i + 1)) { //如果为最后一张图片，将执行下面的代码
-            $(".backImg").eq(i).fadeOut(5000);
-            $('.backImg').eq(0).fadeIn(5000); //索引值为i的图片淡出，这里不同于上面，是第一张图片淡入 
-            i = 0; //将索引值变为0，回到初始状态           
-        }
-        if ($(".backImg2").length > (j + 1)) { //判断是否执行到最后一张图片
-            $(".backImg2").eq(j).fadeOut(3000).next("img").fadeIn(3000);
-
-            //索引值为i的图片淡出，它的下一张图片淡入
-            j++; //使索引值增加1，下一次执行动作的图片索引值为i+1，
-        }
-        if ($(".backImg2").length <= (j + 1)) { //如果为最后一张图片，将执行下面的代码
-            $(".backImg2").eq(j).fadeOut(3000);
-            $('.backImg2').eq(0).fadeIn(3000); //索引值为i的图片淡出，这里不同于上面，是第一张图片淡入 
-            j = 0; //将索引值变为0，回到初始状态           
-        }
-    }, 5000); //5000ms执行一次淡入淡出的动作
-    timer1 = setInterval(pos, 20);
-    var container = document.getElementById('container');
-    var box2 = document.getElementById('box2');
-    var box3 = document.getElementById('box3');
-    container.style.paddingTop = (document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
-    box3.style.height = 300 + 'px';
-    // box3.style.paddingTop = document.getElementById('moreBox').offsetHeight * 0.2 + 'px';
-
-
-    var diary = document.getElementById('img');
-    var imgBox = document.getElementById('imgBox');
-    var imgDes = document.getElementById('imgDes');
-    imgBox.style.paddingTop = (imgBox.offsetHeight - diary.offsetHeight - imgDes.offsetHeight) * 0.25 + 'px';
-    imgDes.style.marginBottom = 10 + 'px';
-    var btnBox = document.getElementById('btnBox');
-    var btnImg = document.getElementById('btnImg');
-    btnBox.style.paddingTop = (btnBox.offsetHeight - btnImg.offsetHeight) * 0.5 + 'px';
-    document.getElementById('btnRow').style.paddingTop = parseInt(document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
-    document.getElementById('btnRow').style.paddingBottom = parseInt(document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
-    document.getElementById('showRow').style.paddingTop = parseInt(document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
-
-    //打字效果实现
-    document.getElementById('intr').style.height = 40 + 'px';
-    var s = "Hello,Welcome to my travel diary!";
-    var intr = $('#intr');
-    var index = 0;
-    var length = s.length;
-    var tId = null;
-    var delayTimer = null;
-
-    function start() {
-        intr.text(''); //先清空上次的文字 再显示这次的文字 视觉上就是一个一个输出的
-        tId = setInterval(function() {
-            intr.append(s.charAt(index)); //向span容器中依次添加字符
-            if (index++ === length) { //判断字符是否都添加完 添加完则清空 重新开始
-                clearInterval(tId);
-                delayTimer = setTimeout(function() {
-                    index = 0;
-                    start();
-                }, 2000);
-
+            });
+            $('.zoomInUp').each(function() {
+                    threshold = $('#container').outerHeight(true) + $('#box2').outerHeight(true) + $('#box3').outerHeight(true);
+                    scrollValue = $(window).scrollTop() + $(window).height();
+                    if (scrollValue < threshold - 10) {
+                        console.log('移除');
+                        //当图片移除视野时 删除动画属性，使得下次再移入视野时，依然有动画效果
+                        $(this).removeClass('animated zoomInUp'); //animated和具体动画效果要一起添加
+                    }
+                })
+                //返回顶部按钮
+            if ($(window).scrollTop() > 150) {
+                console.log($(window).scrollTop(), '$(window).scrollTop()');
+                $('#goTop').fadeIn(100);
             }
-        }, 100);
-    }
-    start();
+            if ($(window).scrollTop() < 150) {
+                $('#goTop').fadeOut(100);
+                console.log($(window).scrollTop(), '隐藏');
+            }
+        }
+        wrapper2.style.width = (document.documentElement.clientWidth || document.body.clientWidth + 250) + 'px';
+        wrapper2.style.height = 240 + 'px';
+        //淡入淡出效果。jquery实现
+        $(".backImg").fadeOut(0).eq(0).fadeIn(0); //先隐藏所有图片，再将对象移到第一张图片，使之淡入
+        $(".backImg2").fadeOut(0).eq(0).fadeIn(0); //先隐藏所有图片，再将对象移到第一张图片，使之淡入
 
-    //实现img-responsive的过程
-    // oImg=document.getElementsByClassName('img-responsive');
-    //  for(var i=0;i<oImg.length;i++){
-    //      oImg[i].style.height=oImg[i].offsetWidth*oImg[i].naturalHeight/oImg[i].naturalWidth+'px';
-    //  }
+        var i = 0; //初始化图片的索引值
+        var j = 0;
+        setInterval(function() { //setInterval是每隔一段时间循环一个动作
+            if ($(".backImg").length > (i + 1)) { //判断是否执行到最后一张图片
+                $(".backImg").eq(i).fadeOut(5000).next("img").fadeIn(5000);
 
-    var imgScale = document.getElementsByClassName('img-responsive');
-    for (var j = 0; j < imgScale.length; j++) {
-        imgScale[j].index = j; //给每个图片加上index 这种方法常用
-        //用时间监听给每个图片添加事件 在图片的动画效果可以用css实现时就用css 只是写不同的类 再添加不同的类就可以 要把添加的类单独写出来 不要和原来的写到一个名字中
-        imgScale[j].addEventListener('mouseover', function() {
-            $(imgScale[this.index]).removeClass('minus').addClass('plus');
-        }, false);
-        imgScale[j].addEventListener('mouseout', function() {
-            $(imgScale[this.index]).removeClass('plus').addClass('minus');
-        }, false);
-        //也可用最原始的方法来给每个图片添加事件
-        // imgNow=imgScale[j];
-        // imgScale[j].onmouseover = function() {
-        //     console.log(this.index,'over');
-        //     $(imgScale[this.index]).removeClass('minus').addClass('plus');
-        // }
-        // imgScale[j].onmouseout = function() {
-        //     console.log(this.index,'out')
-        //     $(imgScale[this.index]).removeClass('plus').addClass('minus');
-        // }
+                //索引值为i的图片淡出，它的下一张图片淡入
+                i++; //使索引值增加1，下一次执行动作的图片索引值为i+1，
+            }
+            if ($(".backImg").length <= (i + 1)) { //如果为最后一张图片，将执行下面的代码
+                $(".backImg").eq(i).fadeOut(5000);
+                $('.backImg').eq(0).fadeIn(5000); //索引值为i的图片淡出，这里不同于上面，是第一张图片淡入 
+                i = 0; //将索引值变为0，回到初始状态           
+            }
+            if ($(".backImg2").length > (j + 1)) { //判断是否执行到最后一张图片
+                $(".backImg2").eq(j).fadeOut(3000).next("img").fadeIn(3000);
+
+                //索引值为i的图片淡出，它的下一张图片淡入
+                j++; //使索引值增加1，下一次执行动作的图片索引值为i+1，
+            }
+            if ($(".backImg2").length <= (j + 1)) { //如果为最后一张图片，将执行下面的代码
+                $(".backImg2").eq(j).fadeOut(3000);
+                $('.backImg2').eq(0).fadeIn(3000); //索引值为i的图片淡出，这里不同于上面，是第一张图片淡入 
+                j = 0; //将索引值变为0，回到初始状态           
+            }
+        }, 5000); //5000ms执行一次淡入淡出的动作
+        //wrapper图片的移动
+
+        timer1 = setInterval(pos, 20);
+        console.log('开启定时器');
+
+
+        var container = document.getElementById('container');
+        var box2 = document.getElementById('box2');
+        var box3 = document.getElementById('box3');
+        container.style.paddingTop = (document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
+        box3.style.height = 300 + 'px';
+        // box3.style.paddingTop = document.getElementById('moreBox').offsetHeight * 0.2 + 'px';
+
+
+        var diary = document.getElementById('img');
+        var imgBox = document.getElementById('imgBox');
+        var imgDes = document.getElementById('imgDes');
+        imgBox.style.paddingTop = (imgBox.offsetHeight - diary.offsetHeight - imgDes.offsetHeight) * 0.25 + 'px';
+        imgDes.style.marginBottom = 10 + 'px';
+        var btnBox = document.getElementById('btnBox');
+        var btnImg = document.getElementById('btnImg');
+        btnBox.style.paddingTop = (btnBox.offsetHeight - btnImg.offsetHeight) * 0.5 + 'px';
+        document.getElementById('btnRow').style.paddingTop = parseInt(document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
+        document.getElementById('btnRow').style.paddingBottom = parseInt(document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
+        document.getElementById('showRow').style.paddingTop = parseInt(document.documentElement.clientHeight || document.body.clientHeight) * 0.15 + 'px';
+
+        //打字效果实现
+        document.getElementById('intr').style.height = 40 + 'px';
+        var s = "Hello,Welcome to my travel diary!";
+        var intr = $('#intr');
+        var index = 0;
+        var length = s.length;
+        var tId = null;
+        var delayTimer = null;
+
+        function start() {
+            intr.text(''); //先清空上次的文字 再显示这次的文字 视觉上就是一个一个输出的
+            tId = setInterval(function() {
+                intr.append(s.charAt(index)); //向span容器中依次添加字符
+                if (index++ === length) { //判断字符是否都添加完 添加完则清空 重新开始
+                    clearInterval(tId);
+                    delayTimer = setTimeout(function() {
+                        index = 0;
+                        start();
+                    }, 2000);
+
+                }
+            }, 100);
+        }
+        start();
+
+        //实现img-responsive的过程
+        // oImg=document.getElementsByClassName('img-responsive');
+        //  for(var i=0;i<oImg.length;i++){
+        //      oImg[i].style.height=oImg[i].offsetWidth*oImg[i].naturalHeight/oImg[i].naturalWidth+'px';
+        //  }
+
+        var imgScale = document.getElementsByClassName('img-responsive');
+        for (var j = 0; j < imgScale.length; j++) {
+            imgScale[j].index = j; //给每个图片加上index 这种方法常用
+            //用时间监听给每个图片添加事件 在图片的动画效果可以用css实现时就用css 只是写不同的类 再添加不同的类就可以 要把添加的类单独写出来 不要和原来的写到一个名字中
+            imgScale[j].addEventListener('mouseover', function() {
+                $(imgScale[this.index]).removeClass('minus').addClass('plus');
+            }, false);
+            imgScale[j].addEventListener('mouseout', function() {
+                $(imgScale[this.index]).removeClass('plus').addClass('minus');
+            }, false);
+            //也可用最原始的方法来给每个图片添加事件
+            // imgNow=imgScale[j];
+            // imgScale[j].onmouseover = function() {
+            //     console.log(this.index,'over');
+            //     $(imgScale[this.index]).removeClass('minus').addClass('plus');
+            // }
+            // imgScale[j].onmouseout = function() {
+            //     console.log(this.index,'out')
+            //     $(imgScale[this.index]).removeClass('plus').addClass('minus');
+            // }
+        }
+        //一定要上面的语句执行完在执行box3的语句 否则container的高度会出问题
+        document.getElementsByClassName('backImg2')[0].style.width = (document.documentElement.clientWidth || document.body.clientWidth) + 250 + 'px';
+        document.getElementsByClassName('backImg2')[1].style.width = (document.documentElement.clientWidth || document.body.clientWidth) + 250 + 'px';
+        console.log($('.backImg2').eq(0).width());
+        var containerHeight = container.offsetHeight; //container里面包含图片 图片的高度以及图片的盒子样式加载后，才是实际的container的高度 所以在box3要读取container的高度时，要在container里面内容加载完成后再进行。
+        console.log(containerHeight, '769');
+        var box2Height = box2.offsetHeight;
+        console.log(box2Height, '2474');
+        var wrapper2TopValue = containerHeight + box2Height;
+        console.log(wrapper2TopValue, '3243');
+        wrapper2.style.top = wrapper2TopValue - 300 + 'px';
+        wrapper2Top = wrapper2.offsetTop;
+        console.log(wrapper2Top);
     }
-    //一定要上面的语句执行完在执行box3的语句 否则container的高度会出问题
-    document.getElementsByClassName('backImg2')[0].style.width = (document.documentElement.clientWidth || document.body.clientWidth) + 250 + 'px';
-    document.getElementsByClassName('backImg2')[1].style.width = (document.documentElement.clientWidth || document.body.clientWidth) + 250 + 'px';
-    console.log($('.backImg2').eq(0).width());
-    var containerHeight = container.offsetHeight; //container里面包含图片 图片的高度以及图片的盒子样式加载后，才是实际的container的高度 所以在box3要读取container的高度时，要在container里面内容加载完成后再进行。
-    console.log(containerHeight, '769');
-    var box2Height = box2.offsetHeight;
-    console.log(box2Height, '2474');
-    var wrapper2TopValue = containerHeight + box2Height;
-    console.log(wrapper2TopValue, '3243');
-    wrapper2.style.top = wrapper2TopValue - 300 + 'px';
-    wrapper2Top = wrapper2.offsetTop;
-    console.log(wrapper2Top);
-}
-// clearInterval(timer1);
+    // clearInterval(timer1);
 function pos() {
-console.log('定时器启动');
-console.log(flag);
+    console.log('定时器启动');
+    console.log(flag);
     if (flag) {
         speed = 1;
         console.log('down');
-        console.log(wrapper.offsetLeft,'横坐标');
-         console.log(wrapper.offsetTop,'纵坐标');
+        console.log(wrapper.offsetLeft, '横坐标');
+        console.log(wrapper.offsetTop, '纵坐标');
         if (wrapper.offsetLeft >= 0 && wrapper.offsetTop >= 0) {
             flag = false;
         }
-        if (wrapper2.offsetLeft >= 0 && wrapper2.offsetTop >= wrapper2Top) {
-            flag = false;
+        if ($(wrapper2).css('display') == 'block') {
+            if (wrapper2.offsetLeft >= 0 && wrapper2.offsetTop >= wrapper2Top) {
+                flag = false;
+            }
         }
+
     }
-    if (flag==false) {
+    if (!flag) {
         console.log('up');
-        console.log(wrapper.offsetLeft,'横坐标');
-         console.log(wrapper.offsetTop,'纵坐标');
+        console.log(wrapper.offsetLeft, '横坐标');
+        console.log(wrapper.offsetTop, '纵坐标');
         speed = -1;
         if (wrapper.offsetLeft < -300 && wrapper.offsetTop < -250) {
             flag = true;
         }
-        if (wrapper2.offsetLeft < -250 && wrapper2.offsetTop < wrapper2Top) {
-            flag = true;
+        if ($(wrapper2).css('display') == 'block') {
+            if (wrapper2.offsetLeft < -250 && wrapper2.offsetTop < wrapper2Top) {
+                flag = true;
+            }
         }
     }
     wrapper.style.left = (wrapper.offsetLeft + speed) + 'px';

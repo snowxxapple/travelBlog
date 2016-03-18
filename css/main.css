@@ -314,6 +314,7 @@ a:hover{
 .spinner .rect5{
     -webkit-animation-delay: -0.8s
 }
+
 @media (max-device-width:768px){
     #wrapper2{
         display: none;
@@ -324,7 +325,6 @@ a:hover{
 .xDevice{
     display: block;
 }
-
 }
 @media (min-device-width:768px){
     .xDevice{
