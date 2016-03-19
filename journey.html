@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <!-- 浏览Web网页时能适应屏幕的大小显示在屏幕上，禁止其默认的自适应页面的效果 -->
-    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <meta name='viewport' content='width=device-width,initial-scale=1,user-scalable=no'>
     <title>Journey diary</title>
     <meta name='description' content='Journey diary is a personal diary'>
     <meta name='keywords' content='journey,keywords'>
@@ -255,13 +255,13 @@
         </div> -->
         <div class='row' style='background: rgba(136, 234, 189, 0.46);padding: 10px'>
             <div class='col-xs-4'>
-                <div class='btn btn-info btn-small'>more</div>
+                <a class='btn btn-info btn-small' href='https://snowxxapple.github.io'>more</a>
             </div>
             <div class='col-xs-4'>
-                <div class='btn btn-info btn-small'>github</div>
+                <a class='btn btn-info btn-small' href='https://github.com/snowxxapple'>github</a>
             </div>
             <div class='col-xs-4'>
-                <div class='btn btn-info btn-small'>weibo</div>
+                <a class='btn btn-info btn-small' href='http://crystalxue.com'>weibo</a>
             </div>
         </div>
     </div>
@@ -293,7 +293,8 @@ open.style.height = document.body.scrollHeight + 500 + 'px';
 var spinner = document.getElementsByClassName('spinner');
 open.style.paddingTop = (document.documentElement.clientHeight || document.body.clientHeight) * 0.3 + 'px';
 var timer3;
-$('html').width=screenWidth+'px';
+// $('html').width=screenWidth+'px';
+// $('body').width($(window).height());
 window.onload = function() {
         //待页面加载完，包括图片加载完毕后，移除开场动画
         timer3 = setTimeout(function() {
@@ -304,8 +305,8 @@ window.onload = function() {
                 scrollTop: 0
             }, 500);
         });
-        document.getElementById('goTop').style.left = (document.documentElement.clientWidth || document.body.clientWidth) * 0.9 + 'px';
-        document.getElementById('goTop').style.top = (document.documentElement.clientHeight * 0.9 || document.body.clientHeight) * 0.9 + 'px';
+        document.getElementById('goTop').style.left = document.documentElement.clientWidth * 0.9 + 'px';
+        document.getElementById('goTop').style.top = document.documentElement.clientHeight * 0.9 + 'px';
         //用的CSS库实现的滚动动画效果 animate.css
         window.onscroll = function() {
             // $('#open').removeClass('animated rollOut');

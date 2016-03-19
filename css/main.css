@@ -325,6 +325,10 @@ a:hover{
 .xDevice{
     display: block;
 }
+.xDevice a{
+    display: inline-block;
+    
+}
 }
 @media (min-device-width:768px){
     .xDevice{
